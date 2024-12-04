@@ -1,0 +1,20 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/Odinokun/webpack-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Odinokun/webpack-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Odinokun/webpack-starter/issues"
+  },
+  "license": "ISC",
+  "author": "Dmytro Hordiienko",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
