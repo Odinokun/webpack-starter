@@ -25,5 +25,7 @@ module.exports = {
     static: './dist',
     open: true,
     port: 8080,
+    hot: true, // Turn on HMR
+    watchFiles: ['./src/**/*'], // Monitoring files
   },
 };
