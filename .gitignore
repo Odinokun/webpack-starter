@@ -7,6 +7,7 @@
 .yarn
 _temp-files/
 node_modules/
+dist
 
 # Numerous always-ignore extensions
 *.bak
