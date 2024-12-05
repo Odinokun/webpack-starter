@@ -1,0 +1,15 @@
+@use './components/button' as btn;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.btn {
+  @include btn.button;
+}
+
+.btn-full {
+  @include btn.button;
+  width: 100%;
+}
