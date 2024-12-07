@@ -13,3 +13,8 @@ body {
   width: 100%;
   @include btn.button;
 }
+
+img {
+  display: block;
+  width: 100%;
+}
