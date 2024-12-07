@@ -2,12 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js', // Main file name
+    path: path.resolve(__dirname, 'dist'), // Path for building the project
     clean: true, // Cleans the dist folder before each build
   },
   module: {
@@ -39,6 +41,27 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css', // Saves styles to a separate file
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/img'), // Path to images in src
+          to: 'img', // Path to images in dist
+          noErrorOnMissing: true, // Don't throw an error if the folder is empty
+        },
+      ],
+    }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminGenerate,
+        options: {
+          plugins: [
+            ['mozjpeg', { quality: 90 }],
+            ['optipng', { optimizationLevel: 5 }],
+            ['svgo'],
+          ],
+        },
+      },
     }),
   ],
   optimization: {
