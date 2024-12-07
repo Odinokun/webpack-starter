@@ -1,8 +1,8 @@
 @use './components/button' as btn;
 
 body {
-  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
 }
 
 .btn {
@@ -10,6 +10,6 @@ body {
 }
 
 .btn-full {
-  @include btn.button;
   width: 100%;
+  @include btn.button;
 }

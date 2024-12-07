@@ -1,3 +1,35 @@
 module.exports = {
-  plugins: [require('autoprefixer')],
+  syntax: 'postcss-scss',
+  plugins: [
+    require('autoprefixer'),
+    require('postcss-sorting')({
+      order: [
+        'custom-properties',
+        'dollar-variables',
+        'at-variables',
+        'declarations',
+        'rules',
+        'at-rules',
+      ],
+      'properties-order': [
+        'position',
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'z-index',
+        'display',
+        'flex',
+        'width',
+        'height',
+        'margin',
+        'padding',
+        'color',
+        'background-color',
+        'font-size',
+        'font-family',
+      ],
+      'unspecified-properties-position': 'bottom',
+    }),
+  ],
 };
