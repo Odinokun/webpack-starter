@@ -32,6 +32,19 @@ module.exports = {
           'sass-loader', // Compiles SCSS to CSS
         ],
       },
+      {
+        test: /\.svg$/,
+        include: path.resolve(__dirname, 'src/sprite-icons'), // Path to SVG icons
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true, // Create a separate sprite file
+              spriteFilename: 'img/sprite.svg', // Sprite's path + name
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -62,7 +75,9 @@ module.exports = {
           ],
         },
       },
+      include: path.resolve(__dirname, 'src/img'), // Minimize images in the img folder
     }),
+    new (require('svg-sprite-loader/plugin'))(), // Plugin for SVG sprite
   ],
   optimization: {
     minimizer: [
